@@ -88,7 +88,7 @@ const projects = () => {
                 className="mt-20"
               />
               <Image
-                src="/present-2.png"
+                src="/Present-2.png"
                 width="500"
                 height="500"
                 className="mt-20"
