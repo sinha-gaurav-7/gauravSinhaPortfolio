@@ -13,16 +13,16 @@ const contactme = () => {
           <div>
             <h2 className="text-4xl font-bold"> Get In Touch</h2>
           </div>
-          <div className=" grid grid-cols-2 mt-10">
-            <div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 mt-10">
+            <div className="sm:pr-8">
               <div>
-                <p className="text-lg px-20">
+                <p className="text-lg sm:px-0">
                   I am currently looking for new opportunities, my inbox is
                   always open. Whether you have a question or just want to say
                   hi, I will try my best to get back to you!
                 </p>
               </div>
-              <div className="text-lg px-20 mt-10">
+              <div className="text-lg sm:mt-10">
                 <p>
                   Phone:{" "}
                   <a
@@ -33,7 +33,7 @@ const contactme = () => {
                   </a>
                 </p>
               </div>
-              <div className="text-lg px-20 mt-10">
+              <div className="text-lg sm:mt-10">
                 <p>
                   Email:{" "}
                   <a
@@ -45,7 +45,7 @@ const contactme = () => {
                 </p>
               </div>
             </div>
-            <div>
+            <div className="sm:pl-8 mt-4 sm:mt-0">
               <form className="max-w-md mx-auto">
                 <div className="mb-4">
                   <label

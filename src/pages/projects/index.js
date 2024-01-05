@@ -51,13 +51,14 @@ const projects = () => {
       },
     ],
   };
+
   return (
     <>
       <Layout>
         <section className="max-w-screen-xl mx-auto pt-20">
           <h2 className="text-4xl font-bold">Projects</h2>
-          <div className="grid grid-cols-3 gap-4 p-4">
-            <div className="col-span-2 p-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 p-4">
+            <div className="md:col-span-2 p-4">
               <div className="container mx-auto my-8">
                 {Object.entries(projectsData).map(([category, projects]) => (
                   <div key={category} className="mb-8">
@@ -80,24 +81,24 @@ const projects = () => {
                 ))}
               </div>
             </div>
-            <div className="md:col-span-1 p-4">
+            <div className="md:col-span-1 p-4 xs:flex-col">
               <Image
                 src="/present-1.png"
-                width="500"
-                height="500"
+                width={500}
+                height={500}
                 className="mt-20"
               />
               <Image
                 src="/Present-2.png"
-                width="500"
-                height="500"
+                width={500}
+                height={500}
                 className="mt-20"
               />
               <Image
                 src="/fbta-1.png"
-                width="500"
-                height="500"
-                className="mt-52"
+                width={500}
+                height={500}
+                className="mt-20"
               />
             </div>
           </div>
@@ -108,63 +109,3 @@ const projects = () => {
 };
 
 export default projects;
-
-{
-  /* <div className="grid grid-cols-3 gap-4 p-4">
-            <div className="col-span-1 bg-blue-500 p-4 text-white">Image</div>
-            <div className="col-span-2 bg-yellow-500 p-4 text-white">
-              <header className="mb-4">
-                <h1 className="text-xl font-bold">Present</h1>
-              </header>
-              <div>
-                <div className="mb-4">
-                  <h2 className="text-lg font-bold mb-2">
-                    Full Stack Web Application Development:
-                  </h2>
-                  <p className="mb-2">
-                    Developed an end-to-end web application using Next.js for
-                    both front-end and back-end, implementing 7 RESTful APIs for
-                    user registration, authentication, and presentation
-                    management.
-                  </p>
-                  <p>
-                    Utilized TypeScript for front-end components, implementing
-                    routing with Next.js's useRouter hook, and employed Redux
-                    for state management to handle slide creation, element
-                    placement, and user sessions.
-                  </p>
-                </div>
-                <div className="mb-4">
-                  <h2 className="text-lg font-bold mb-2">
-                    MongoDB Integration and Data Management:
-                  </h2>
-                  <p className="mb-2">
-                    Successfully integrated MongoDB to store and retrieve data
-                    throughout the project, leveraging its capabilities for
-                    efficient presentation creation, storage, and retrieval.
-                  </p>
-                  <p>
-                    Implemented robust data handling mechanisms, allowing users
-                    to save, edit, and delete presentations seamlessly, while
-                    maintaining data consistency across the application.
-                  </p>
-                </div>
-                <div>
-                  <h2 className="text-lg font-bold mb-2">
-                    Responsive Design and Styling:
-                  </h2>
-                  <p className="mb-2">
-                    Implemented a responsive and visually appealing user
-                    interface using Tailwind CSS for styling and Shadcn for
-                    component libraries.
-                  </p>
-                  <p>
-                    Ensured a seamless user experience with efficient routing,
-                    allowing users to create, preview, and manage presentation
-                    slides with a user-friendly interface.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div> */
-}

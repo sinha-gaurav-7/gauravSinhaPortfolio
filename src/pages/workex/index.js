@@ -1,23 +1,23 @@
 import React from "react";
 import Layout from "../Layout.js";
 
-const workex = () => {
+const WorkExperience = () => {
   return (
     <>
       <Layout>
-        <section className="max-w-screen-xl mx-auto pt-20 flex min-h-screen">
-          <header>
+        <section className="max-w-screen-xl mx-auto pt-20 flex flex-col md:flex-row min-h-screen">
+          <header className="md:w-1/4">
             <h2 className="text-4xl font-bold">
               Work <br />
               Experience
             </h2>
           </header>
-          <div className="ml-40">
-            <div className=" flex">
-              {/* <div> */}
-              <p className="w-2/4">August 2022 - July 2023</p>
-              {/* </div> */}
-              <div>
+          <div className="ml-0 md:ml-40 mt-8 md:mt-0 md:w-3/4">
+            <div className="flex flex-col md:flex-row">
+              <p className="w-full md:w-2/4 mb-4 md:mb-0">
+                August 2022 - July 2023
+              </p>
+              <div className="md:ml-8">
                 <div>
                   <h3 className="text-2xl font-bold">
                     Tata Consultancy Services
@@ -56,11 +56,11 @@ const workex = () => {
                 </div>
               </div>
             </div>
-            <div className=" flex">
-              {/* <div> */}
-              <p className="w-2/4">July 2021 - July 2022</p>
-              {/* </div> */}
-              <div>
+            <div className="flex flex-col md:flex-row mt-8">
+              <p className="w-full md:w-2/4 mb-4 md:mb-0">
+                July 2021 - July 2022
+              </p>
+              <div className="md:ml-8">
                 <div>
                   <h3 className="text-2xl font-bold">
                     Tata Consultancy Services
@@ -100,4 +100,4 @@ const workex = () => {
   );
 };
 
-export default workex;
+export default WorkExperience;
