@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { useRouter } from "next/router";
+// import { RESUME_FILE_URL } from '../../../public/Gaurav_Sinha_Resume_SD5.pdf'
 
-const RESUME_FILE_URL = "http://localhost:3000/Gaurav_Sinha_Resume_SD5.pdf";
+const RESUME_FILE_URL = "../../../public/Gaurav_Sinha_Resume_SD5.pdf";
 const Index = () => {
   const router = useRouter();
   const [menuOpen, setMenuOpen] = useState(false);
