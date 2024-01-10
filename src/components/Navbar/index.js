@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useRouter } from "next/router";
 
+const RESUME_FILE_URL = "http://localhost:3000/Gaurav_Sinha_Resume_SD5.pdf";
 const Index = () => {
   const router = useRouter();
   const [menuOpen, setMenuOpen] = useState(false);
@@ -13,6 +14,16 @@ const Index = () => {
     router.push(path);
     setMenuOpen(false);
   };
+  function downloadFile(fileURL) {
+    console.log("downloadFile");
+    const fileName = "Gaurav_Sinha_Resume_SD5.pdf";
+    const aTag = document.createElement("a");
+    aTag.href = fileURL;
+    aTag.setAttribute("download", fileName);
+    document.body.appendChild(aTag);
+    aTag.click();
+    aTag.remove();
+  }
 
   return (
     <section>
@@ -76,6 +87,15 @@ const Index = () => {
               : "hidden"
           }`}
         >
+          <li
+            className={`mr-5 cursor-pointer ${
+              menuOpen ? "border-t border-gray-300 pt-2" : ""
+            }`}
+          >
+            <button onClick={() => downloadFile(RESUME_FILE_URL)}>
+              Download Resume
+            </button>
+          </li>
           <li
             className={`mr-5 cursor-pointer ${
               menuOpen ? "border-t border-gray-300 pt-2" : ""
