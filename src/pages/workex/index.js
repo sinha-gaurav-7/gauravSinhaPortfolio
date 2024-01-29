@@ -2,6 +2,27 @@ import React from "react";
 import Layout from "../Layout.js";
 
 const WorkExperience = () => {
+  const workExperienceData = [
+    {
+      period: "August 2022 - July 2023",
+      company: "Tata Consultancy Services",
+      position: "System Engineer",
+      responsibilities: [
+        "Collaborated with product managers and software developers to translate the design team's custom dashboard into responsive, single-page web applications (SPAs) using React, AJAX, and JavaScript, resulting in a 25% load time reduction.",
+        "Coordinated with cross-functional teams, comprising UI/UX designers and backend engineers, to ensure that the new React components complied with project specifications.",
+        "Designed a REST API architecture jointly with the back-end team for efficient CRUD operations. Successfully integrated the API with the user interface for data management and display that improved the overall speed and reliability of the company’s web application by 20%.",
+      ],
+    },
+    {
+      period: "July 2021 - July 2022",
+      company: "Tata Consultancy Services",
+      position: "Assistant System Engineer",
+      responsibilities: [
+        "Designed page wireframes and mockups in Figma that increased the ease of development of individual page design, while adhering to WCAG 2.x compliance.",
+        "Identified and rectified front-end issues, including HTML, CSS, and JavaScript errors (including jQuery), through thorough unit testing. Achieved a 30% enhancement in overall quality assurance.",
+      ],
+    },
+  ];
   return (
     <>
       <Layout>
@@ -12,87 +33,53 @@ const WorkExperience = () => {
               Experience
             </h2>
           </header>
-          <div className="ml-0 md:ml-40 mt-8 md:mt-0 md:w-3/4">
-            <div className="flex flex-col md:flex-row">
-              <p className="w-full md:w-2/4 mb-4 md:mb-0">
-                August 2022 - July 2023
-              </p>
-              <div className="md:ml-8">
+          <div className="ml-32">
+            {workExperienceData.map((experience, index) => (
+              <div key={index} className="flex">
+                <p
+                  className="w-2/4"
+                  style={{
+                    minWidth: "150px",
+                    maxWidth: "2000px",
+                    marginRight: "20px",
+                    padding: "10px",
+                  }}
+                >
+                  {experience.period}
+                </p>
                 <div>
-                  <h3 className="text-2xl font-bold">
-                    Tata Consultancy Services
-                  </h3>
-                </div>
-                <div>
-                  <h2 className="text-lg font-bold">System Administrator</h2>
-                </div>
-                <div>
-                  <ul className="list-disc pl-8">
-                    <li className="mb-4">
-                      <p className="text-lg leading-relaxed">
-                        Deployed 800 dedicated Virtual Desktops for Robotics
-                        users on VMware Horizon, integrating vCenter server.
-                        Aligned with Client's specs for seamless operation of
-                        bots.
-                      </p>
-                    </li>
-                    <li className="mb-4">
-                      <p className="text-lg leading-relaxed">
-                        Enhanced user experience with upgrades to VMware virtual
-                        appliances (Horizon 8.4, vCenter 7.0.3 e, and Horizon
-                        agent), reducing bandwidth usage by 30% and ensuring
-                        security compliance for audits.
-                      </p>
-                    </li>
-                    <li className="mb-4">
-                      <p className="text-lg leading-relaxed">
-                        Engaged stakeholders in an extensive VDI disaster
-                        recovery drill, guaranteeing readiness of both primary
-                        and DR infrastructures, minimizing downtime, and
-                        ensuring uninterrupted operations.
-                      </p>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div className="flex flex-col md:flex-row mt-8">
-              <p className="w-full md:w-2/4 mb-4 md:mb-0">
-                July 2021 - July 2022
-              </p>
-              <div className="md:ml-8">
-                <div>
-                  <h3 className="text-2xl font-bold">
-                    Tata Consultancy Services
-                  </h3>
-                </div>
-                <div>
-                  <h2 className="font-bold text-lg">
-                    Assistant System Engineer Trainee
-                  </h2>
-                </div>
-                <div>
-                  <ul className="list-disc pl-8">
-                    <li className="mb-4">
-                      <p className="text-lg leading-relaxed">
-                        Responsible for upkeep of 70+ production and DR servers,
-                        hosting SQL, Workspace One, DEM, DHCP, and more.
-                        Ensuring peak performance by promptly applying OS
-                        patches.
-                      </p>
-                    </li>
-                    <li className="mb-4">
-                      <p className="text-lg leading-relaxed">
-                        Led the administration of an intricate VDI setup,
-                        overseeing 12 vCenter servers, 28 Horizon Connection
-                        Servers, 12 App Volumes, and 4 DEMs. My proficiency
-                        significantly improved its reliability and efficiency.
-                      </p>
-                    </li>
-                  </ul>
+                  <div>
+                    <h3
+                      className="text-2xl font-bold"
+                      style={{ width: "300px" }}
+                    >
+                      {experience.company}
+                    </h3>
+                  </div>
+                  <div>
+                    <h2
+                      className="text-lg font-bold"
+                      style={{ width: "300px" }}
+                    >
+                      {experience.position}
+                    </h2>
+                  </div>
+                  <div>
+                    <ul className="list-disc pl-8" style={{ width: "700px" }}>
+                      {experience.responsibilities.map(
+                        (responsibility, idx) => (
+                          <li key={idx} className="mb-4">
+                            <p className="text-lg leading-relaxed">
+                              {responsibility}
+                            </p>
+                          </li>
+                        )
+                      )}
+                    </ul>
+                  </div>
                 </div>
               </div>
-            </div>
+            ))}
           </div>
         </section>
       </Layout>

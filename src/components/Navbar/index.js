@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useRouter } from "next/router";
 // import { RESUME_FILE_URL } from '../../../public/Gaurav_Sinha_Resume_SD5.pdf'
 
-const RESUME_FILE_URL = "/Gaurav_Sinha_Resume_SD5.pdf";
+const RESUME_FILE_URL = "/Gaurav_Sinha_Resume.pdf";
 const Index = () => {
   const router = useRouter();
   const [menuOpen, setMenuOpen] = useState(false);
@@ -17,7 +17,7 @@ const Index = () => {
   };
   function downloadFile(fileURL) {
     console.log("downloadFile");
-    const fileName = "Gaurav_Sinha_Resume_SD5.pdf";
+    const fileName = "Gaurav_Sinha_Resume.pdf";
     const aTag = document.createElement("a");
     console.log(fileURL);
     aTag.href = fileURL;

@@ -10,16 +10,14 @@ const Index = () => {
     "Next.js",
     "MySQL",
     "Mongoose",
-    "Restful APIs",
-    "Django",
+    "REST APIs",
   ];
   const frontendTechnologies = [
     "HTML",
     "CSS",
     "React",
     "Javascript",
-    "Tailwind CSS",
-    "Bootstrap",
+    "TypeScript",
     "JQuery",
     "Redux",
   ];
@@ -29,17 +27,8 @@ const Index = () => {
     "C",
     "Git",
     "Github",
-    "TypeScript",
-    "Vercel",
-  ];
-  const tools = [
-    "IntellijIdea",
-    "VS Code",
     "Postman",
-    "VMware vCenter",
-    "VMware Horizon",
-    "Vmware Workspace One",
-    "VMware DEM",
+    "Vercel",
   ];
 
   return (
@@ -61,11 +50,6 @@ const Index = () => {
             <MyCard
               title="Other Technologies"
               technologies={otherTechnologies}
-              responsiveClass="sm:w-full md:w-1/2 lg:w-1/4"
-            />
-            <MyCard
-              title="Tools"
-              technologies={tools}
               responsiveClass="sm:w-full md:w-1/2 lg:w-1/4"
             />
           </div>
