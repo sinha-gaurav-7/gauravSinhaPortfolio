@@ -23,6 +23,7 @@ const WorkExperience = () => {
       ],
     },
   ];
+
   return (
     <>
       <Layout>
@@ -33,50 +34,44 @@ const WorkExperience = () => {
               Experience
             </h2>
           </header>
-          <div className="ml-32">
+          <div className="md:ml-32 mt-8 md:mt-0">
             {workExperienceData.map((experience, index) => (
-              <div key={index} className="flex">
+              <div
+                key={index}
+                className="flex flex-col md:flex-row mb-8 md:mb-16"
+              >
                 <p
-                  className="w-2/4"
+                  className="w-full md:w-2/4 mb-4 md:mb-0 md:mr-4"
                   style={{
                     minWidth: "150px",
                     maxWidth: "2000px",
-                    marginRight: "20px",
                     padding: "10px",
                   }}
                 >
                   {experience.period}
                 </p>
-                <div>
-                  <div>
-                    <h3
-                      className="text-2xl font-bold"
-                      style={{ width: "300px" }}
-                    >
-                      {experience.company}
-                    </h3>
-                  </div>
-                  <div>
-                    <h2
-                      className="text-lg font-bold"
-                      style={{ width: "300px" }}
-                    >
-                      {experience.position}
-                    </h2>
-                  </div>
-                  <div>
-                    <ul className="list-disc pl-8" style={{ width: "700px" }}>
-                      {experience.responsibilities.map(
-                        (responsibility, idx) => (
-                          <li key={idx} className="mb-4">
-                            <p className="text-lg leading-relaxed">
-                              {responsibility}
-                            </p>
-                          </li>
-                        )
-                      )}
-                    </ul>
-                  </div>
+                <div className="flex flex-col">
+                  <h3
+                    className="text-2xl font-bold mb-2"
+                    style={{ width: "100%" }}
+                  >
+                    {experience.company}
+                  </h3>
+                  <h2
+                    className="text-lg font-bold mb-2"
+                    style={{ width: "100%" }}
+                  >
+                    {experience.position}
+                  </h2>
+                  <ul className="list-disc pl-8" style={{ width: "100%" }}>
+                    {experience.responsibilities.map((responsibility, idx) => (
+                      <li key={idx} className="mb-2">
+                        <p className="text-lg leading-relaxed">
+                          {responsibility}
+                        </p>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </div>
             ))}
