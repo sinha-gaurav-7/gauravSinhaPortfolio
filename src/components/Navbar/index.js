@@ -97,8 +97,8 @@ const Navbar = () => {
               <FaLinkedin size={20} />
             </a>
             <a
-              href="/Gaurav-Resume.pdf"
-              download="Gaurav-Resume.pdf"
+              href="/Gaurav-Sinha-resume.pdf"
+              download="Gaurav-Sinha-resume.pdf"
               className="text-gray-500 hover:text-green-600 transition duration-300"
             >
               <FaSuitcase size={20} />
