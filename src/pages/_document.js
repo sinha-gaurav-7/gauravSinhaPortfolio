@@ -10,6 +10,10 @@ export default function Document() {
           async
           src="https://www.googletagmanager.com/gtag/js?id=G-JXG0RYGPPC"
         ></script>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap"
+          rel="stylesheet"
+        />
       </Head>
       <body>
         <Main />

@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+
 module.exports = {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -7,7 +8,9 @@ module.exports = {
   ],
   theme: {
     extend: {
-      //
+      fontFamily: {
+        sans: ["Poppins-Medium", "sans-serif"],
+      },
       screens: {
         xs: "475px",
         sm: "640px",
@@ -16,15 +19,10 @@ module.exports = {
         xl: "1200px",
         "2xl": "1536px",
       },
-      fontFamily: {
-        burtons: "burtons",
-      },
       backgroundColor: {
-        "custom-color": "#EBEBEB",
-        // "custom-color": "#EAF6FF",
+        "custom-color": "#FAFAFA",
       },
     },
   },
   plugins: [],
 };
-

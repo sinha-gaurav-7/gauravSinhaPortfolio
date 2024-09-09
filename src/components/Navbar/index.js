@@ -1,167 +1,113 @@
 import React, { useState } from "react";
-import { useRouter } from "next/router";
-// import { RESUME_FILE_URL } from '../../../public/Gaurav_Sinha_Resume_SD5.pdf'
+import Link from "next/link";
+import { FaLinkedin, FaSuitcase, FaBars, FaTimes } from "react-icons/fa";
 
-const RESUME_FILE_URL = "/Gaurav-Sinha-resume.pdf";
-const Index = () => {
-  const router = useRouter();
-  const [menuOpen, setMenuOpen] = useState(false);
+const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
 
-  const handleMenuClick = () => {
-    setMenuOpen(!menuOpen);
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
   };
-
-  const handleNavLinkClick = (path) => {
-    router.push(path);
-    setMenuOpen(false);
-  };
-  function downloadFile(fileURL) {
-    console.log("downloadFile");
-    const fileName = "Gaurav-Sinha-resume.pdf";
-    const aTag = document.createElement("a");
-    console.log(fileURL);
-    aTag.href = fileURL;
-    aTag.setAttribute("download", fileName);
-    document.body.appendChild(aTag);
-    aTag.click();
-    aTag.remove();
-  }
 
   return (
-    <section>
-      <nav className="flex justify-between p-5 cursor-pointer bg-custom-color relative">
-        <h1
-          className="font-burtons"
-          onClick={() => {
-            router.push("/");
-          }}
-        >
-          Gaurav Sinha's work
-        </h1>
-
-        <div
-          className={`lg:hidden cursor-pointer ${
-            menuOpen ? "text-blue-500" : "text-white"
-          }`}
-          onClick={handleMenuClick}
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            className="h-6 w-6"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M4 6h16M4 12h16m-7 6h7"
-            />
-          </svg>
-        </div>
-
-        {menuOpen && (
-          <div
-            className="lg:hidden cursor-pointer text-white absolute top-5 right-5"
-            onClick={handleMenuClick}
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              className="h-6 w-6"
+    <section className="bg-custom-color">
+      <nav className="w-full sm:w-3/4 mx-auto border border-gray-300 rounded-full px-4 sm:px-10 py-4">
+        <div className="container flex justify-between items-center">
+          {/* Hamburger icon for mobile - now on the left */}
+          <div className="sm:hidden">
+            <button
+              onClick={toggleMenu}
+              className="text-gray-500 hover:text-gray-700 focus:outline-none"
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M6 18L18 6M6 6l12 12"
-              />
-            </svg>
-          </div>
-        )}
-        <ul
-          className={`lg:flex lg:items-center ${
-            menuOpen
-              ? "flex flex-col items-center absolute top-16 left-0 w-full z-40 bg-white"
-              : "hidden"
-          }`}
-        >
-          <li
-            className={`mr-5 cursor-pointer ${
-              menuOpen ? "border-t border-gray-300 pt-2" : ""
-            }`}
-          >
-            <button onClick={() => downloadFile(RESUME_FILE_URL)}>
-              Download Resume
+              {isOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
             </button>
-          </li>
-          <li
-            className={`mr-5 cursor-pointer ${
-              menuOpen ? "border-t border-gray-300 pt-2" : ""
-            }`}
-          >
+          </div>
+
+          {/* Links for larger screens, centered */}
+          <div className="hidden sm:flex flex-1 justify-center">
+            <ul className="flex space-x-10">
+              <li>
+                <Link
+                  href="/"
+                  className="text-black text-lg hover:text-gray-500"
+                >
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/about"
+                  className="text-black text-lg hover:text-gray-500"
+                >
+                  About
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/resume"
+                  className="text-black text-lg hover:text-gray-500"
+                >
+                  Resume
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Mobile menu, conditionally rendered */}
+          {isOpen && (
+            <ul className="sm:hidden absolute top-16 left-0 w-full bg-custom-color rounded-lg p-4 space-y-4">
+              <li>
+                <Link
+                  href="/"
+                  onClick={toggleMenu}
+                  className="text-black text-lg hover:text-gray-500"
+                >
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/about"
+                  onClick={toggleMenu}
+                  className="text-black text-lg hover:text-gray-500"
+                >
+                  About
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/resume"
+                  onClick={toggleMenu}
+                  className="text-black text-lg hover:text-gray-500"
+                >
+                  Resume
+                </Link>
+              </li>
+            </ul>
+          )}
+
+          {/* LinkedIn and Resume icons, placed to the right on all screens */}
+          <div className="flex justify-end space-x-4">
             <a
-              onClick={() => handleNavLinkClick("/skills")}
-              className="text-black"
+              href="https://www.linkedin.com/in/gaurav-sinha-89b57116a/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-500 hover:text-blue-600 transition duration-300"
             >
-              Skills
+              <FaLinkedin size={20} />
             </a>
-          </li>
-          <li
-            className={`mr-5 cursor-pointer ${
-              menuOpen ? "border-t border-gray-300 pt-2" : ""
-            }`}
-          >
             <a
-              onClick={() => handleNavLinkClick("/education")}
-              className="text-black"
+              href="/Gaurav-Resume.pdf"
+              download="Gaurav-Resume.pdf"
+              className="text-gray-500 hover:text-green-600 transition duration-300"
             >
-              Qualifications
+              <FaSuitcase size={20} />
             </a>
-          </li>
-          <li
-            className={`mr-5 cursor-pointer ${
-              menuOpen ? "border-t border-gray-300 pt-2" : ""
-            }`}
-          >
-            <a
-              onClick={() => handleNavLinkClick("/workex")}
-              className="text-black"
-            >
-              Work Experience
-            </a>
-          </li>
-          <li
-            className={`mr-5 cursor-pointer ${
-              menuOpen ? "border-t border-gray-300 pt-2" : ""
-            }`}
-          >
-            <a
-              onClick={() => handleNavLinkClick("/projects")}
-              className="text-black"
-            >
-              Software Projects
-            </a>
-          </li>
-          <li
-            className={`mr-5 cursor-pointer ${
-              menuOpen ? "border-t border-gray-300 pt-2" : ""
-            }`}
-          >
-            <a
-              onClick={() => handleNavLinkClick("/contact")}
-              className="text-black"
-            >
-              Contact
-            </a>
-          </li>
-        </ul>
+          </div>
+        </div>
       </nav>
     </section>
   );
 };
 
-export default Index;
+export default Navbar;
