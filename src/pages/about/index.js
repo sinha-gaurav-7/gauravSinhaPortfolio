@@ -1,5 +1,3 @@
-// pages/about.js
-
 import React from "react";
 import Image from "next/image";
 import Layout from "../Layout";
@@ -7,9 +5,9 @@ import Layout from "../Layout";
 const About = () => {
   return (
     <Layout>
-      <section className="mx-auto w-3/4">
-        <div className="min-h-screen flex flex-col md:flex-row justify-center items-center">
-          <div className="md:w-1/2 flex justify-center p-10">
+      <section className="mx-auto w-[90%] sm:w-3/4 pt-20">
+        <div className="flex flex-col md:flex-row justify-center items-center">
+          <div className="md:w-1/2 flex justify-center p-4 md:p-10">
             <Image
               src="/gaurav-about.jpg"
               height={450}
@@ -18,7 +16,7 @@ const About = () => {
               alt="Gaurav Rakesh Sinha"
             />
           </div>
-          <div className="md:w-1/2 flex flex-col justify-center p-10">
+          <div className="md:w-1/2 flex flex-col justify-center p-4 md:p-10">
             <h2 className="text-4xl font-bold mb-4">About Me</h2>
             <p className="text-lg leading-relaxed">
               I am Gaurav Rakesh Sinha, a full-stack developer based in Boston
@@ -31,18 +29,17 @@ const About = () => {
           </div>
         </div>
       </section>
-      <section className="mx-auto w-3/4 pt-20 min-h-screen">
-        <div>
-          <h2 className="text-4xl font-bold">Get In Touch</h2>
-        </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 mt-10">
-          <div className="sm:pr-8">
-            <p className="text-lg sm:px-0">
+
+      <section className="mx-auto w-[90%] sm:w-3/4 pt-20">
+        <div className="flex flex-col md:flex-row justify-center items-start">
+          <div className="md:w-1/2 w-full flex flex-col justify-center p-4 md:p-10">
+            <h2 className="text-4xl font-bold mb-4">Get In Touch</h2>
+            <p className="text-lg leading-relaxed">
               I am currently looking for new opportunities, my inbox is always
               open. Whether you have a question or just want to say hi, I will
               try my best to get back to you!
             </p>
-            <p className="text-lg sm:mt-10">
+            <p className="text-lg mt-4">
               Phone:{" "}
               <a
                 href="tel:+18573983073"
@@ -51,7 +48,7 @@ const About = () => {
                 (857)-(398)-(3073)
               </a>
             </p>
-            <p className="text-lg sm:mt-10">
+            <p className="text-lg mt-4">
               Email:{" "}
               <a
                 href="mailto:sinha.g@northeastern.edu"
@@ -61,8 +58,8 @@ const About = () => {
               </a>
             </p>
           </div>
-          <div className="sm:pl-8 mt-4 sm:mt-0">
-            <form className="max-w-md mx-auto">
+          <div className="md:w-1/2 w-full flex flex-col justify-center p-4 md:p-10">
+            <form className="w-[90%] mx-auto">
               <div className="mb-4">
                 <label
                   htmlFor="firstName"

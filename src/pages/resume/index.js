@@ -53,45 +53,41 @@ const Resume = () => {
   ];
 
   return (
-    <>
-      <Layout>
-        <section className="w-full sm:w-3/4 mx-auto p-20">
-          <h1 className="text-center font-semibold text-3xl py-10">
-            WORK EXPERIENCE
-          </h1>
+    <Layout>
+      <section className="w-full sm:w-3/4 mx-auto sm:p-20 p-4">
+        <h1 className="text-center font-semibold sm:text-3xl text-2xl sm:py-10 py-4">
+          WORK EXPERIENCE
+        </h1>
+        <div className="mx-auto space-y-10">
+          {experiences.map((experience, index) => (
+            <Experience
+              key={index}
+              jobTitle={experience.jobTitle}
+              companyName={experience.companyName}
+              duration={experience.duration}
+              jobDescription={experience.jobDescription}
+            />
+          ))}
+        </div>
+      </section>
 
-          <div className="container mx-auto space-y-10">
-            {experiences.map((experience, index) => (
-              <Experience
-                key={index}
-                jobTitle={experience.jobTitle}
-                companyName={experience.companyName}
-                duration={experience.duration}
-                jobDescription={experience.jobDescription}
-              />
-            ))}
-          </div>
-        </section>
-
-        <section className="w-full sm:w-3/4 mx-auto p-20">
-          <h1 className="text-center font-semibold text-3xl py-10">
-            EDUCATION
-          </h1>
-
-          <div className="container mx-auto space-y-10">
-            {education.map((edu, index) => (
-              <Education
-                key={index}
-                collegeName={edu.collegeName}
-                location={edu.location}
-                duration={edu.duration}
-                courses={edu.courses}
-              />
-            ))}
-          </div>
-        </section>
-      </Layout>
-    </>
+      <section className="w-full sm:w-3/4 mx-auto sm:p-20 p-4">
+        <h1 className="text-center font-semibold sm:text-3xl text-2xl sm:py-10 py-4">
+          EDUCATION
+        </h1>
+        <div className="mx-auto space-y-10">
+          {education.map((edu, index) => (
+            <Education
+              key={index}
+              collegeName={edu.collegeName}
+              location={edu.location}
+              duration={edu.duration}
+              courses={edu.courses}
+            />
+          ))}
+        </div>
+      </section>
+    </Layout>
   );
 };
 

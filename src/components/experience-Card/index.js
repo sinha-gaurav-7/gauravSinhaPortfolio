@@ -1,8 +1,6 @@
-import React from "react";
-
 const Experience = ({ jobTitle, companyName, duration, jobDescription }) => {
   return (
-    <div className="bg-white shadow-md rounded-lg p-6 space-y-4">
+    <div className="bg-white shadow-md rounded-lg p-6 space-y-4 w-full">
       <div className="flex justify-between items-center">
         <h3 className="text-xl font-bold">{jobTitle}</h3>
         <p className="text-gray-600">{duration}</p>
