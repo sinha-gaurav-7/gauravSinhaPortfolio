@@ -1,10 +1,58 @@
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import Layout from "../Layout";
 
 const About = () => {
+  // State management for form data
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+
+  // Handle form field changes
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  // Handle form submission
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        alert("Message sent successfully!");
+        // Reset form
+        setFormData({
+          firstName: "",
+          lastName: "",
+          email: "",
+          subject: "",
+          message: "",
+        });
+      } else {
+        const errorData = await response.json();
+        alert(`Error: ${errorData.error || "An error occurred"}`);
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      alert("An unexpected error occurred.");
+    }
+  };
+
   return (
     <Layout>
+      {/* About Section */}
       <section className="mx-auto w-[90%] sm:w-3/4 pt-20">
         <div className="flex flex-col md:flex-row justify-center items-center">
           <div className="md:w-1/2 flex justify-center p-4 md:p-10">
@@ -30,8 +78,10 @@ const About = () => {
         </div>
       </section>
 
+      {/* Contact Section */}
       <section className="mx-auto w-[90%] sm:w-3/4 pt-20">
         <div className="flex flex-col md:flex-row justify-center items-start">
+          {/* Contact Info */}
           <div className="md:w-1/2 w-full flex flex-col justify-center p-4 md:p-10">
             <h2 className="text-4xl font-bold mb-4">Get In Touch</h2>
             <p className="text-lg leading-relaxed">
@@ -58,8 +108,10 @@ const About = () => {
               </a>
             </p>
           </div>
+          {/* Contact Form */}
           <div className="md:w-1/2 w-full flex flex-col justify-center p-4 md:p-10">
-            <form className="w-[90%] mx-auto">
+            <form className="w-[90%] mx-auto" onSubmit={handleSubmit}>
+              {/* First Name */}
               <div className="mb-4">
                 <label
                   htmlFor="firstName"
@@ -71,10 +123,13 @@ const About = () => {
                   type="text"
                   id="firstName"
                   name="firstName"
+                  value={formData.firstName}
+                  onChange={handleChange}
                   className="mt-1 p-2 border rounded-md w-full focus:outline-none focus:ring focus:border-blue-300"
                   placeholder="Enter your first name"
                 />
               </div>
+              {/* Last Name */}
               <div className="mb-4">
                 <label
                   htmlFor="lastName"
@@ -86,10 +141,13 @@ const About = () => {
                   type="text"
                   id="lastName"
                   name="lastName"
+                  value={formData.lastName}
+                  onChange={handleChange}
                   className="mt-1 p-2 border rounded-md w-full focus:outline-none focus:ring focus:border-blue-300"
                   placeholder="Enter your last name"
                 />
               </div>
+              {/* Email */}
               <div className="mb-4">
                 <label
                   htmlFor="email"
@@ -101,10 +159,13 @@ const About = () => {
                   type="email"
                   id="email"
                   name="email"
+                  value={formData.email}
+                  onChange={handleChange}
                   className="mt-1 p-2 border rounded-md w-full focus:outline-none focus:ring focus:border-blue-300"
                   placeholder="Enter your email"
                 />
               </div>
+              {/* Subject */}
               <div className="mb-4">
                 <label
                   htmlFor="subject"
@@ -116,10 +177,13 @@ const About = () => {
                   type="text"
                   id="subject"
                   name="subject"
+                  value={formData.subject}
+                  onChange={handleChange}
                   className="mt-1 p-2 border rounded-md w-full focus:outline-none focus:ring focus:border-blue-300"
                   placeholder="Enter the subject"
                 />
               </div>
+              {/* Message */}
               <div className="mb-4">
                 <label
                   htmlFor="message"
@@ -131,10 +195,13 @@ const About = () => {
                   id="message"
                   name="message"
                   rows="4"
+                  value={formData.message}
+                  onChange={handleChange}
                   className="mt-1 p-2 border rounded-md w-full focus:outline-none focus:ring focus:border-blue-300"
                   placeholder="Type your message here"
                 ></textarea>
               </div>
+              {/* Submit Button */}
               <div className="text-center">
                 <button
                   type="submit"

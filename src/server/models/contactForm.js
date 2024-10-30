@@ -1,6 +1,8 @@
+// server/models/contactForm.js
+
 import mongoose from "mongoose";
 
-const formDataSchema = new mongoose.Schema({
+const contactFormSchema = new mongoose.Schema({
   firstName: {
     type: String,
     required: [true, "First name is required"],
@@ -16,7 +18,6 @@ const formDataSchema = new mongoose.Schema({
     required: [true, "Email is required"],
     trim: true,
     lowercase: true,
-    unique: true,
     match: [/^\S+@\S+\.\S+$/, "Please enter a valid email address"],
   },
   subject: {
@@ -31,6 +32,9 @@ const formDataSchema = new mongoose.Schema({
   },
 });
 
-const FormData = mongoose.model("FormData", formDataSchema);
+// Prevent model overwrite in development
+const ContactForm =
+  mongoose.models.ContactForm ||
+  mongoose.model("ContactForm", contactFormSchema);
 
-module.exports = FormData;
+export default ContactForm;
