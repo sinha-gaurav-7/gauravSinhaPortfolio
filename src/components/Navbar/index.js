@@ -19,7 +19,6 @@ const Navbar = () => {
     <section className="bg-custom-color">
       <nav className="w-full sm:w-3/4 mx-auto border border-gray-300 rounded-full px-4 sm:px-10 py-4">
         <div className="container flex justify-between items-center">
-          {/* Hamburger icon for mobile - now on the left */}
           <div className="sm:hidden">
             <button
               onClick={toggleMenu}
@@ -92,7 +91,7 @@ const Navbar = () => {
 
           <div className="flex justify-end space-x-4">
             <a
-              href="https://www.linkedin.com/in/gaurav-sinha-89b57116a/"
+              href="https://www.linkedin.com/in/sinhagaurav7/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-500 hover:text-blue-600 transition duration-300"
@@ -100,7 +99,7 @@ const Navbar = () => {
               <FaLinkedin size={20} />
             </a>
             <a
-              href="https://github.com/Cenagaurav77"
+              href="https://github.com/sinha-gaurav-7"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-500 hover:text-black transition duration-300"
